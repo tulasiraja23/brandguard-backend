@@ -4,9 +4,7 @@ import multer from "multer";
 import OpenAI from "openai";
 
 const router = Router();
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -30,6 +28,9 @@ router.post("/image-analysis", upload.single("image"), async (req, res) => {
     if (!process.env.OPENAI_API_KEY) {
       return res.status(503).json({ message: "OpenAI API key is not configured." });
     }
+    const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
     const mime = req.file.mimetype;
     const base64 = req.file.buffer.toString("base64");
