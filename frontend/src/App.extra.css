@@ -1,0 +1,169 @@
+/* Extra styles for BrandGuard AI *//* App.extra.css — additions for the corrected App.jsx.
+   Place next to App.css in src/. It only ADDS classes; it does not restyle your existing ones.
+   Palette: navy #142B4A, cyan #38C6E8. */
+
+/* ---------- role switcher (prototype) ---------- */
+.role-switch { display: inline-flex; border: 1px solid #c9d6e6; border-radius: 999px; overflow: hidden; background: #fff; }
+.role-switch button { border: 0; background: transparent; padding: 6px 14px; font: inherit; font-size: 13px; color: #142B4A; cursor: pointer; }
+.role-switch button.active { background: #142B4A; color: #fff; }
+.role-switch button:focus-visible { outline: 2px solid #38C6E8; outline-offset: -2px; }
+
+/* ---------- risk / status / verdict labels ---------- */
+.risk-pill.none { background: #e8f1f8; color: #4a617a; }
+.status-pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.status-pill.analysed { background: #e8f1f8; color: #34506d; }
+.status-pill.pending  { background: #fff3d6; color: #8a5a00; }
+.status-pill.approved { background: #dff5e6; color: #1b6b3a; }
+.status-pill.rejected { background: #fde3e1; color: #a32a22; }
+
+.finding-dot.info, .severity-tag.info { background: #dff5e6; color: #1b6b3a; }
+.finding-dot.info { width: 10px; height: 10px; border-radius: 50%; }
+
+.verdict-tag { padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; text-transform: capitalize; }
+.verdict-tag.supported    { background: #dff5e6; color: #1b6b3a; }
+.verdict-tag.contradicted { background: #fde3e1; color: #a32a22; }
+.verdict-tag.unverified   { background: #fff3d6; color: #8a5a00; }
+
+.source-badge { padding: 2px 8px; border-radius: 6px; font-size: 12px; background: #eef2f7; color: #4a617a; }
+
+/* ---------- inline highlighting ---------- */
+.highlighted-text { margin: 6px 0 0; padding: 12px; background: #f6f9fc; border: 1px solid #dde6f0; border-radius: 8px; line-height: 1.7; white-space: pre-wrap; }
+.hl { border-radius: 4px; padding: 1px 3px; cursor: help; }
+.hl-high   { background: #fbd0cc; box-shadow: inset 0 -2px 0 #d64536; }
+.hl-medium { background: #ffe7b0; box-shadow: inset 0 -2px 0 #e09b00; }
+.hl-low    { background: #d6ecf7; box-shadow: inset 0 -2px 0 #38C6E8; }
+
+/* ---------- evidence ---------- */
+.source-box { margin-top: 10px; padding: 10px 12px; border-left: 4px solid #38C6E8; background: #eefaff; border-radius: 0 8px 8px 0; }
+.source-box p { margin: 4px 0 0; font-style: italic; }
+
+/* ---------- results layout ---------- */
+.summary-area { padding: 12px 14px; border-radius: 10px; background: #f6f9fc; border: 1px solid #dde6f0; margin-bottom: 14px; }
+.summary-area p { margin: 4px 0 8px; color: #4a617a; }
+.count-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.count { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.count.high { background: #fde3e1; color: #a32a22; }
+.count.medium { background: #fff3d6; color: #8a5a00; }
+.count.low { background: #d6ecf7; color: #1f5f7a; }
+.count.supported { background: #dff5e6; color: #1b6b3a; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 8px 0 16px; }
+.compare-grid textarea { width: 100%; box-sizing: border-box; }
+
+.stale-banner { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; margin-bottom: 12px; background: #fff3d6; color: #8a5a00; border-radius: 8px; }
+.stale-tag { margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #fff3d6; color: #8a5a00; font-size: 11px; font-weight: 600; }
+
+.decision-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; padding-top: 14px; border-top: 1px solid #dde6f0; }
+.decision-row { padding: 12px 0; border-top: 1px solid #e6edf5; }
+.decision-row p { margin: 6px 0 2px; }
+.decision-row small { color: #6a7f95; }
+.review-card { margin-bottom: 20px; }
+
+.danger-button { color: #a32a22; border-color: #e7b3ae; }
+.danger-button:hover:not(:disabled) { background: #fde3e1; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- rules & facts forms ---------- */
+.rule-form-extended { display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 10px; }
+.fact-form { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+.fact-form .primary-button { grid-column: span 1; }
+.value-unit { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.rule-form-extended input, .rule-form-extended select, .fact-form input, .fact-form select {
+  padding: 10px 12px; border: 1px solid #c9d6e6; border-radius: 8px; font: inherit; min-width: 0;
+}
+.rule-form-extended input:focus, .fact-form input:focus, .fact-form select:focus, .rule-form-extended select:focus {
+  outline: 2px solid #38C6E8; outline-offset: 0;
+}
+.rule-reason { display: block; color: #6a7f95; font-size: 12px; margin-top: 2px; }
+.fact-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: start; padding: 12px 0; border-top: 1px solid #e6edf5; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .compare-grid, .fact-form, .rule-form-extended { grid-template-columns: 1fr; }
+  .role-switch button { padding: 6px 10px; }
+}
+
+/* BrandGuard AI readability improvements */
+
+/* Increase text size in the findings */
+.finding > div > strong {
+  font-size: 1.05rem;
+}
+
+.finding p,
+.remediation-block small,
+.source-box p,
+.source-box small {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Make rule labels easier to read */
+.rule-id,
+.severity-tag,
+.evidence-label,
+.source-badge {
+  font-size: 0.82rem;
+}
+
+/* Fix text contrast in the approved source box */
+.source-box {
+  color: #173047;
+  background: #eaf6ff;
+  border-color: #b8dff5;
+}
+
+.source-box p,
+.source-box small,
+.source-box strong {
+  color: #173047;
+  opacity: 1;
+}
+
+/* Improve matched evidence readability */
+.evidence-block code {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffd18a;
+}
+
+/* Stack content and results vertically */
+.work-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+  align-items: start;
+  gap: 20px;
+}
+
+/* Reduce unnecessary empty space in the editor */
+.editor-panel textarea {
+  min-height: 150px;
+}
+
+/* Let results use the available width */
+.results-panel {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Increase common text sizes by about 1 point */
+body {
+  font-size: calc(1rem + 1pt);
+}
+
+.finding p,
+.remediation-block small,
+.evidence-block code,
+.remediation-block p {
+  font-size: calc(1em + 1pt);
+  line-height: 1.6;
+}
+
+/* Keep approved-source text readable */
+.source-box,
+.source-box p,
+.source-box strong,
+.source-box small {
+  color: #173047;
+  opacity: 1;
+}
